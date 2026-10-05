@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: nivel2-springai
+  ai:
+    openai:
+      api-key: ${GROQ_API_KEY}
+      # Spring AI agrega /v1/chat/completions: no repetir /v1 en esta base.
+      base-url: https://api.groq.com/openai
+      chat:
+        options:
+          # Reemplazo vigente del Llama retirado de la guia original.
+          model: ${GROQ_MODEL:openai/gpt-oss-120b}
+          temperature: 0.7
+          max-completion-tokens: 4096
+    retry:
+      max-attempts: 2
+
+server:
+  address: 127.0.0.1
+  port: ${SERVER_PORT:8080}
+
+logging:
+  level:
+    org.springframework.ai: INFO
+    com.universidad: INFO

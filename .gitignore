@@ -1,0 +1,30 @@
+# ── Compilados Maven ──────────────────────────────
+target/
+*.class
+*.jar
+*.war
+
+# ── IntelliJ IDEA ─────────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ── Credenciales y secretos (NUNCA subir) ─────────
+.env
+application-local.properties
+application-local.yml
+application-secrets.properties
+application-secrets.yml
+application-secrets.yaml
+*.key
+*.pem
+
+# ── Logs ──────────────────────────────────────────
+logs/
+*.log
+java-tmp/
+
+# ── Sistema operativo ─────────────────────────────
+.DS_Store
+Thumbs.db
