@@ -152,6 +152,15 @@ class Nivel2SpringaiApplicationTests {
     }
 
     @Test
+    void estadoEndpointConfirmsApplicationAvailability() throws Exception {
+        mvc.perform(get("/api/estado"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.estado").value("ok"))
+                .andExpect(jsonPath("$.mensaje").value("Aplicación disponible"));
+        assertThat(requests).isEmpty();
+    }
+
+    @Test
     void ragRetrievesDocumentAndAddsItToModelPrompt() throws Exception {
         mvc.perform(post("/api/v2/rag").contentType("application/json")
                         .content("{\"pregunta\":\"¿Qué puerto utiliza el servidor?\"}"))
